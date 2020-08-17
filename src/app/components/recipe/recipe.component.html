@@ -1,23 +1,24 @@
-<span>Recipe 1</span>
-<div>
-  Servings :
-</div>
-<div>
-  INGREDIENTS
-  <div>
-    <ul>
-      <li>300 g flour</li>
-      <li>100 ml water</li>
-      <li>1 tsp salt</li>
-      <li>1 tbsp oil</li>
-    </ul>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">{{recipe.name}}</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <button type="button" class="btn btn-sm btn-outline-secondary">Imperial</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary">Metric</button>
+    </div>
+    <input type="text" class="btn-sm btn-outline-secondary col-2">
+    <label class="btn-sm">Servings</label>
   </div>
 </div>
+
+<h2>Ingredients</h2>
 <div>
-  Method
-  <ol>
-    <li>Take flour in one bowl and add salt</li>
-    <li>por water in flour and mix everything to make a soft dough</li>
-    <li>Pour oil on dough and mix it properly to smooth the dough </li>
-  </ol>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">
+      {{ingredient.quantity}} {{ingredient.unit}} {{ingredient.name}}
+    </li>
+  </ul>
 </div>
+<h2>Method</h2>
+<ol>
+  <li *ngFor="let step of recipe.steps">{{step}}</li>
+</ol>

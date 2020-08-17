@@ -1,56 +1,20 @@
-<div class="sidenav">
-  <a routerLink="recipe/1">Recipe 1</a>
-  <a href="recipe/2">Recipe 2</a>
-  <a href="#">Recipe 3</a>
-  <a href="#">Recipe 4</a>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="sidebar-sticky pt-3">
+      <ul class="nav flex-column">
+        <li class="nav-item" *ngFor="let recipe of recipes" (click)="sendRecipeId(recipe.id)">
+          <a class="nav-link active" routerLink="recipe/{{recipe.id}}" >
+            <span data-feather="{{recipe.name}}"></span>
+            {{recipe.name}} <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
-
-<div class="main">
-  <router-outlet></router-outlet>
-
-  <footer>
-    You can see source code for this app on &nbsp;
-    <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Github </a>
-  </footer>
-</div>
-
-<style>
-  /* The sidebar menu */
-  .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 260px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-  }
-
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-
-  /* Style page content */
-  .main {
-    margin-left: 260px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
-  }
-
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-</style>
