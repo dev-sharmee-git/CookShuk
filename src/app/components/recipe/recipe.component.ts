@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
 import {Recipe} from '../../models/recipe.model';
@@ -11,6 +11,7 @@ import {filter} from 'rxjs/operators';
 })
 export class RecipeComponent implements OnInit {
   recipe: Recipe;
+  servings = 2;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,5 +32,8 @@ export class RecipeComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.recipeService.getRecipe(id)
       .subscribe(recipe => this.recipe = recipe);
+  }
+  test(): void {
+    console.log(this.servings);
   }
 }

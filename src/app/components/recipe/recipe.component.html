@@ -5,8 +5,9 @@
       <button type="button" class="btn btn-sm btn-outline-secondary">Imperial</button>
       <button type="button" class="btn btn-sm btn-outline-secondary">Metric</button>
     </div>
-    <input type="text" class="btn-sm btn-outline-secondary col-2">
-    <label class="btn-sm">Servings</label>
+    <label class="btn-sm">
+      <input type="text" class="btn-sm btn-outline-secondary col-2" [(ngModel)]="servings"> Servings
+    </label>
   </div>
 </div>
 
@@ -14,7 +15,7 @@
 <div>
   <ul>
     <li *ngFor="let ingredient of recipe.ingredients">
-      {{ingredient.quantity}} {{ingredient.unit}} {{ingredient.name}}
+      {{ingredient.quantity * servings}} {{ingredient.unit}} {{ingredient.name}}
     </li>
   </ul>
 </div>
