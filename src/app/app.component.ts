@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   sendRecipeId(id: number): void {
-    console.log("hi===="+id);
     this.recipeToEmit.emit(id);
   }
 }

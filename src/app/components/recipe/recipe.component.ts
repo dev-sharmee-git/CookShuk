@@ -12,6 +12,7 @@ import {filter} from 'rxjs/operators';
 export class RecipeComponent implements OnInit {
   recipe: Recipe;
   servings = 2;
+  system = 'i';
 
   constructor(
     private route: ActivatedRoute,
@@ -32,8 +33,5 @@ export class RecipeComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.recipeService.getRecipe(id)
       .subscribe(recipe => this.recipe = recipe);
-  }
-  test(): void {
-    console.log(this.servings);
   }
 }

@@ -1,18 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="sidebar-sticky pt-3">
-      <ul class="nav flex-column">
-        <li class="nav-item" *ngFor="let recipe of recipes" (click)="sendRecipeId(recipe.id)">
-          <a class="nav-link active" routerLink="recipe/{{recipe.id}}" >
-            <span data-feather="{{recipe.name}}"></span>
-            {{recipe.name}} <span class="sr-only">(current)</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item" *ngFor="let recipe of recipes" (click)="sendRecipeId(recipe.id)">
+            <a class="nav-link active" routerLink="recipe/{{recipe.id}}" >
+              <span data-feather="{{recipe.name}}"></span>
+              {{recipe.name}} <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <router-outlet></router-outlet>
     </main>

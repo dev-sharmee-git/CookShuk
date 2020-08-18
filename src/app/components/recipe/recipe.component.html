@@ -2,8 +2,8 @@
   <h1 class="h2">{{recipe.name}}</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Imperial</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Metric</button>
+      <label class="btn-lg"><input type="radio" class="btn btn-sm btn-outline-secondary" value="i" name="rdoSystem" [(ngModel)]="system"> Imperial </label>&nbsp;
+      <label class="btn-lg"><input type="radio" class="btn btn-sm btn-outline-secondary" value="m" name="rdoSystem" [(ngModel)]="system"> Metric </label>
     </div>
     <label class="btn-sm">
       <input type="text" class="btn-sm btn-outline-secondary col-2" [(ngModel)]="servings"> Servings
@@ -15,7 +15,7 @@
 <div>
   <ul>
     <li *ngFor="let ingredient of recipe.ingredients">
-      {{ingredient.quantity * servings}} {{ingredient.unit}} {{ingredient.name}}
+      {{ingredient.quantity * servings | unit: ingredient.unit : ingredient.unitType : system }} {{ingredient.name}}
     </li>
   </ul>
 </div>
