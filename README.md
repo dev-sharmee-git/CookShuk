@@ -5,7 +5,7 @@ The backend communication is mocked which contain three recipes.
 Number of servings can be entered in servings text box on top right corner of the app.
 App also provides functionality to change the measuring system from imperial to metric and vise-versa.
 
-`N.B. : Conversions are not correct, it's just illustrate the functionality. And also ever try this recipes. :P`
+`N.B. : Conversions are not correct, it's just illustrate the functionality. And also never try this recipes. :P`
 
 
 ## Development server
